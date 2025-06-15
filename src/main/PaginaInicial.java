@@ -1,3 +1,4 @@
+package src.main;
 // Importação das bibliotecas necessárias para criar a interface gráfica
 import javax.swing.*;
 import java.awt.*;
@@ -6,6 +7,10 @@ import javax.swing.border.Border;
 
 // Classe principal que estende JFrame para criar uma janela
 public class PaginaInicial extends JFrame {
+
+    public static void iniciar() {
+        new PaginaInicial();
+    }
 
     // Classe interna responsável por criar uma borda arredondada personalizada
     class RoundedBorder implements Border {
@@ -40,6 +45,7 @@ public class PaginaInicial extends JFrame {
             g2.drawRoundRect(x, y, width - 1, height - 1, radius, radius);
         }
     }
+    
 
     // Construtor da classe PaginaInicial que configura toda a janela
     public PaginaInicial() {
@@ -53,14 +59,14 @@ public class PaginaInicial extends JFrame {
         Font fonte = new Font("Poppins", Font.PLAIN, 12);
 
         // Carregando a imagem principal
-        String caminhoImagem = "\\Users\\livia\\CODE\\PROJETO_A3\\imagens\\logo_botinho_funoroxo.png";
+        String caminhoImagem = "src/resources/imagens/logo_botinho_funoroxo.png";
         ImageIcon imagemIcon = new ImageIcon(caminhoImagem);  // Carrega a imagem como ícone
         JLabel imagem = new JLabel(imagemIcon, SwingConstants.CENTER);  // Cria um JLabel com a imagem centralizada
         imagem.setFont(fonte.deriveFont(Font.BOLD, 20f));  // Define a fonte em negrito
         imagem.setForeground(Color.decode("#600098"));  // Define a cor do texto do JLabel (opcional)
 
         // Carregando o ícone que será usado no botão
-        String caminhoIcone = "C:\\Users\\livia\\CODE\\PROJETO_A3\\imagens\\button_welcome.png";
+        String caminhoIcone = "C:\\Users\\livia\\CODE\\PROJETO_A3\\src\\resources\\imagens\\button_welcome.png";
         ImageIcon iconeBotao = new ImageIcon(caminhoIcone);  // Carrega o ícone do botão
 
         // Criando o botão com texto e ícone
@@ -94,7 +100,7 @@ public class PaginaInicial extends JFrame {
         // Define a ação que ocorre ao clicar no botão
         iniciar.addActionListener((ActionEvent e) -> {
             dispose();  // Fecha a janela atual
-            new MenuVerticalComAbas();  // Abre uma nova janela ou tela
+            new MenuPrincipal();  // Abre uma nova janela ou tela
         });
 
         setLocationRelativeTo(null);  // Centraliza a janela na tela

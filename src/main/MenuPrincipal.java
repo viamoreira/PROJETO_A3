@@ -1,16 +1,18 @@
+package src.main;
 import javax.swing.*;
+
 import java.awt.*;
 
 
-public class MenuVerticalComAbas extends JFrame {
+public class MenuPrincipal extends JFrame {
 
     // Método estático para iniciar a interface (chamado pelo AppPrincipal)
     public static void iniciar() {
-        new MenuVerticalComAbas(); // Cria uma instância da janela
+        new MenuPrincipal(); // Cria uma instância da janela
     }
 
     // Construtor da classe
-    public MenuVerticalComAbas() {
+    public MenuPrincipal() {
         configurarJanela();
         adicionarComponentes();
     }

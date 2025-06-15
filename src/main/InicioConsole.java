@@ -1,3 +1,4 @@
+package src.main;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -5,7 +6,7 @@ import java.util.Scanner;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
-public class AppPrincipal {
+public class InicioConsole {
     private static List<Usuario> listaUsuarios = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
@@ -16,6 +17,9 @@ public class AppPrincipal {
     public static void iniciarMenuConsole() {
         while (true) {
             System.out.println("\n=== MENU CONSOLE ===");
+            System.out.println("Seja bem-vindo(a)!");
+            System.out.println("Aqui você pode ter acesso a todos os recursos necessários para usar seu robô didático! O que deseja fazer?");
+            System.out.println("");
             System.out.println("1 - Cadastrar usuário");
             System.out.println("2 - Salvar cadastro do usuário");
             System.out.println("3 - Abrir interface gráfica");
@@ -26,16 +30,20 @@ public class AppPrincipal {
                 int opcao = Integer.parseInt(scanner.nextLine());
                 switch (opcao) {
                     case 1:
+                        System.out.println("Iniciando cadastro de usuário...");
                         cadastrarUsuario();
                         break;
                     case 2:
+                        System.out.println("Salvando cadastro do usuário...");
                         salvarUsuariosEmJson();
                         break;
                     case 3:
-                        // Chama a interface gráfica (você já tem MenuVerticalComAbas.java)
-                        MenuVerticalComAbas.iniciar();
+                        System.out.println("Abrindo interface gráfica...");
+                        TelaLogin.iniciar();
                         break;
                     case 4:
+                        System.out.println("Saindo do programa...");
+                        System.out.println("Obrigado por usar o Botinho!");
                         System.exit(0);
                     default:
                         System.out.println("Opção inválida!");
@@ -54,13 +62,16 @@ public class AppPrincipal {
     System.out.print("Digite o email: ");
     String email = scanner.nextLine();
 
+    System.out.print("Digite a senha: ");
+    String senha = scanner.nextLine();
+
     // Validação simples
     if (nome.isEmpty() || !email.contains("@")) {
         System.out.println("Dados inválidos! Nome não pode ser vazio e email deve conter '@'.");
         return;
     }
 
-    Usuario novoUsuario = new Usuario(nome, email);
+    Usuario novoUsuario = new Usuario(nome, email, senha);
     listaUsuarios.add(novoUsuario);
     System.out.println("✅ Usuário cadastrado!");
     }
