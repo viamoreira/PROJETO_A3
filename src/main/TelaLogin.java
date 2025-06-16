@@ -1,7 +1,7 @@
 package src.main;
 import javax.swing.*;
 
-import src.main.PaginaInicial.RoundedBorder;
+import src.main.TelaInicial.RoundedBorder;
 
 import java.awt.*;
 import java.util.List;
@@ -78,7 +78,7 @@ public static void iniciar() {
             label.setFont(new Font("Poppins", Font.PLAIN, 16));
             JOptionPane.showMessageDialog(this, label);
             this.dispose();
-            new PaginaInicial().setVisible(true);
+            new TelaInicial().setVisible(true);
             return;
         }
     }

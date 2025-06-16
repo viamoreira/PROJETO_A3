@@ -3,6 +3,13 @@ import javax.swing.*;
 
 import java.awt.*;
 
+import src.main.abas.ConhecaORobo;
+import src.main.abas.PraticasEM;
+import src.main.abas.QuemSomos;
+import src.main.abas.Inicio;
+import src.main.abas.PraticasEFI;
+import src.main.abas.PraticasEFII;
+import src.main.abas.Padrao;
 
 public class MenuPrincipal extends JFrame {
 
@@ -25,48 +32,66 @@ public class MenuPrincipal extends JFrame {
         setLayout(new BorderLayout());
     }
 
-    private void adicionarComponentes() {
-        // Painel do menu lateral
-        JPanel menu = new JPanel();
-        menu.setLayout(new GridLayout(10, 1, 10, 5));
-        menu.setBackground(Color.decode("#f1f6f9"));
+     private void adicionarComponentes() {
+    // Painel do menu lateral
+    JPanel menu = new JPanel();
+    menu.setLayout(new GridLayout(10, 1, 10, 5));
+    menu.setBackground(Color.decode("#f1f6f9"));
 
-        // Painel de abas
-        JPanel painelAbas = new JPanel(new CardLayout());
-        painelAbas.setBackground(Color.decode("#f1f6f9"));
+    // Painel de abas
+    JPanel painelAbas = new JPanel(new CardLayout());
+    painelAbas.setBackground(Color.decode("#f1f6f9"));
 
-        String[] abas = {"Início", "Quem somos", "Conheça o Robô", "Práticas EFI", "Práticas EFII", "Práticas EM"};
-        Font fonte = new Font("Poppins", Font.PLAIN, 12);
+    // CORREÇÃO: Nome da aba consistentes
+    String[] abas = {"Início", "Quem somos", "Conheça o Robô", "Práticas EFI", "Práticas EFII", "Práticas EM"};
+    Font fonte = new Font("Poppins", Font.PLAIN, 12);
 
-        for (String aba : abas) {
-            // Botões do menu
-            JButton btn = criarBotaoMenu(aba, fonte);
-            menu.add(btn);
+    for (String aba : abas) {
+        JButton btn = criarBotaoMenu(aba, fonte);
+        menu.add(btn);
 
-            // Conteúdo das abas
-            JPanel conteudo = new JPanel();
-            conteudo.setBackground(Color.decode("#f1f6f9"));
-            conteudo.add(new JLabel("Conteúdo de " + aba));
-            painelAbas.add(conteudo, aba);
-
-            // Ação dos botões
-            btn.addActionListener(e -> {
-                ((CardLayout) painelAbas.getLayout()).show(painelAbas, aba);
-            });
+        JPanel conteudo;
+        switch(aba) {
+            case "Início":
+                conteudo = new Inicio();
+                break;
+            case "Quem somos":
+                conteudo = new QuemSomos();
+                break;
+            case "Conheça o Robô":
+                conteudo = new ConhecaORobo();
+                break;
+            case "Práticas EFI":
+                conteudo = new PraticasEFI();
+                break;
+            case "Práticas EFII":
+                conteudo = new PraticasEFII();
+                break;
+            case "Práticas EM":
+                conteudo = new PraticasEM();
+                break;
+            default:
+                conteudo = new Padrao(aba);
         }
+        painelAbas.add(conteudo, aba);
 
-        // Botão Voltar
-        JButton btnVoltar = criarBotaoVoltar(fonte);
-        menu.add(btnVoltar);
-
-        // Layout principal
-        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, menu, painelAbas);
-        splitPane.setDividerLocation(150);
-        splitPane.setEnabled(false);
-
-        add(splitPane, BorderLayout.CENTER);
-        setVisible(true);
+        btn.addActionListener(e -> {
+            ((CardLayout) painelAbas.getLayout()).show(painelAbas, aba);
+        });
     }
+
+    // Botão Voltar
+    JButton btnVoltar = criarBotaoVoltar(fonte);
+    menu.add(btnVoltar);
+
+    // Layout principal (ADICIONE ESTA PARTE QUE ESTAVA FALTANDO)
+    JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, menu, painelAbas);
+    splitPane.setDividerLocation(150);
+    splitPane.setEnabled(false);
+
+    add(splitPane, BorderLayout.CENTER);
+    setVisible(true); // ESSA LINHA É CRUCIAL PARA MOSTRAR A JANELA
+}
 
     private JButton criarBotaoMenu(String texto, Font fonte) {
         JButton btn = new JButton(texto);
@@ -89,7 +114,7 @@ public class MenuPrincipal extends JFrame {
         btn.setFocusPainted(false);
         btn.addActionListener(e -> {
             dispose();
-            new PaginaInicial();
+            new TelaInicial();
         });
         return btn;
     }

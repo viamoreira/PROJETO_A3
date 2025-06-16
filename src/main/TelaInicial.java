@@ -5,11 +5,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import javax.swing.border.Border;
 
+import src.main.abas.QuemSomos;
+
 // Classe principal que estende JFrame para criar uma janela
-public class PaginaInicial extends JFrame {
+public class TelaInicial extends JFrame {
 
     public static void iniciar() {
-        new PaginaInicial();
+        new TelaInicial();
     }
 
     // Classe interna responsável por criar uma borda arredondada personalizada
@@ -48,7 +50,7 @@ public class PaginaInicial extends JFrame {
     
 
     // Construtor da classe PaginaInicial que configura toda a janela
-    public PaginaInicial() {
+    public TelaInicial() {
         setTitle("Botinho: Robô didático"); // Define o título da janela
         setSize(800, 600);  // Define o tamanho da janela
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // Fecha o programa ao fechar a janela
@@ -109,7 +111,7 @@ public class PaginaInicial extends JFrame {
 
     // Método main: ponto de entrada do programa
     public static void main(String[] args) {
-        new PaginaInicial();  // Cria e exibe a janela PaginaInicial
+        new TelaInicial();  // Cria e exibe a janela PaginaInicial
     }
 }
 

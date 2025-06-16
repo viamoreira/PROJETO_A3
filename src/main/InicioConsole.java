@@ -1,9 +1,11 @@
 package src.main;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 
 public class InicioConsole {
@@ -23,7 +25,8 @@ public class InicioConsole {
             System.out.println("1 - Cadastrar usuário");
             System.out.println("2 - Salvar cadastro do usuário");
             System.out.println("3 - Abrir interface gráfica");
-            System.out.println("4 - Sair");
+            System.out.println("4 - Mostrar usuários cadastrados");
+            System.out.println("5 - Sair do programa");
             System.out.print("Escolha uma opção: ");
 
             try {
@@ -42,9 +45,15 @@ public class InicioConsole {
                         TelaLogin.iniciar();
                         break;
                     case 4:
+                        System.out.println("Mostrando usuários cadastrados...");
+                        mostrarUsuarios();
+                        break;  
+                    case 5:
                         System.out.println("Saindo do programa...");
                         System.out.println("Obrigado por usar o Botinho!");
                         System.exit(0);
+
+
                     default:
                         System.out.println("Opção inválida!");
                 }
@@ -55,6 +64,18 @@ public class InicioConsole {
     }
 
     // Métodos auxiliares (adicione esses dentro da classe AppPrincipal)
+    public static void mostrarUsuarios() {
+        if(listaUsuarios == null) {
+            System.out.println("A lista de usuários é NULL");
+            return;
+        }
+        
+        System.out.println("\n📋 Usuários na lista (" + listaUsuarios.size() + "):");
+        for(int i = 0; i < listaUsuarios.size(); i++) {
+            System.out.println((i+1) + ". " + listaUsuarios.get(i).toString());
+        }
+    }
+
     public static void cadastrarUsuario() {
     System.out.print("Digite o nome: ");
     String nome = scanner.nextLine();
@@ -77,12 +98,25 @@ public class InicioConsole {
     }
 
     public static void salvarUsuariosEmJson() {
+    mostrarUsuarios(); // Mostra o conteúdo atual antes de salvar
+    
+    if(listaUsuarios == null || listaUsuarios.isEmpty()) {
+        System.out.println("⚠️ Lista de usuários vazia - nada para salvar");
+        System.out.println("Execute primeiro o método para adicionar/carregar usuários!");
+        return;
+    }
+
     try {
         ObjectMapper mapper = new ObjectMapper();
-        mapper.writeValue(new File("Usuario.json"), listaUsuarios);
-        System.out.println("✅ Dados salvos em 'usuarios.json'!");
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        
+        File arquivo = new File("src/resources/data/Usuario.json");
+        mapper.writeValue(arquivo, listaUsuarios);
+        
+        System.out.println("\n✅ " + listaUsuarios.size() + " usuários salvos em: " + arquivo.getAbsolutePath());
     } catch (Exception e) {
-        System.out.println("❌ Erro ao salvar: " + e.getMessage());
+        System.err.println("\n❌ Erro ao salvar: " + e.getMessage());
+        e.printStackTrace();
     }
- }
+}
 }

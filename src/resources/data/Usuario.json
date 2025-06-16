@@ -1,1 +1,9 @@
-[{"nome":"Livia","email":"liviamoreira@gmail.com","senha":"1234"}]
+[ {
+  "nome" : "Teste",
+  "email" : "teste@t",
+  "senha" : "123"
+}, {
+  "nome" : "Livia",
+  "email" : "liviamoreira@gmail.com",
+  "senha" : "1234"
+} ]
