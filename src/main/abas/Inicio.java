@@ -15,6 +15,7 @@ public class Inicio extends JPanel {
     private Timer timerProgresso;
     private JScrollPane scrollPane;
 
+    // Construtor da classe Inicio que configura toda a aba
     public Inicio() {
         setBackground(Color.decode("#f1f6f9"));
         setLayout(new BorderLayout(10, 10));
@@ -24,6 +25,7 @@ public class Inicio extends JPanel {
         adicionarRodape();
     }
 
+    // Método para adicionar a barra de progresso no topo da aba
     private void adicionarBarraProgresso() {
         JPanel painelProgresso = new JPanel(new BorderLayout());
         painelProgresso.setBackground(Color.decode("#f1f6f9"));
@@ -45,6 +47,7 @@ public class Inicio extends JPanel {
         add(painelProgresso, BorderLayout.NORTH);
     }
 
+    // Método para adicionar o cabeçalho da aba
     private void adicionarCabecalho() {
         JPanel cabecalhoPanel = new JPanel(new BorderLayout());
         cabecalhoPanel.setBackground(Color.decode("#600098"));
@@ -64,6 +67,7 @@ public class Inicio extends JPanel {
         add(cabecalhoPanel, BorderLayout.NORTH);
     }
 
+    // Método para adicionar o conteúdo principal da aba
     private void adicionarConteudoPrincipal() {
         JPanel conteudo = new JPanel();
         conteudo.setLayout(new BoxLayout(conteudo, BoxLayout.PAGE_AXIS));
@@ -123,6 +127,7 @@ public class Inicio extends JPanel {
         SwingUtilities.invokeLater(() -> scrollPane.getViewport().setViewPosition(new Point(0, 0)));
     }
 
+    // Método para adicionar uma seção com botão de confirmação
     private void adicionarSecaoComBotao(JPanel container, String titulo, String texto, String iconeCaminho) {
         String nomeSecao = "SECAO_" + titulo.replaceAll(" ", "_");
         secoesLidas.put(nomeSecao, false);

@@ -1,8 +1,6 @@
 package src.main;
 import javax.swing.*;
 
-import src.main.TelaInicial.RoundedBorder;
-
 import java.awt.*;
 import java.util.List;
 

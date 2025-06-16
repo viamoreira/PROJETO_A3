@@ -1,12 +1,12 @@
-# PROJETO_A3
+# Projeto A3 - Trabalho Final
 
-## Descrição
+## 📃 Descrição
 
 Trabalho desenvolvido para a avaliação A3 da UC - Programação de Soluções Computacionais, do curso de Sistemas de Informação da Faculdade UNABetim.
 
 Este repositório contém uma versão digital interativa do manual didático do robô Botinho, desenvolvido pela equipe STARBOTS (#16055). O projeto transforma as práticas pedagógicas descritas no manual em uma experiência virtual, permitindo que educadores explorem as atividades de Ciências, Geografia e Matemática de forma dinâmica.
 
-## Estrutura de Pastas
+## 🗂️ Estrutura de Pastas
 
 ```
 │   Settings.json
@@ -43,13 +43,13 @@ Este repositório contém uma versão digital interativa do manual didático do 
                 logo_botinho_funoroxo.png
 ```
 
-## Tecnologias Utilizadas
+## 💻 Tecnologias Utilizadas
 
 - **Java** (Swing para interface gráfica)
 - **Jackson** (para manipulação de JSON)
 - **JSON** (persistência dos dados de usuário)
 
-## Como Executar
+## 📌 Como Executar
 
 1. **Compile os arquivos Java:**
    ```
@@ -65,7 +65,7 @@ Este repositório contém uma versão digital interativa do manual didático do 
    - Java 8 ou superior instalado
    - Bibliotecas Jackson na pasta `lib`
 
-## Observações
+## ✅ Observações
 
 - Os dados dos usuários estão em `src/resources/data/Usuario.json`.
 - Imagens usadas pela interface estão em `src/resources/imagens/`.

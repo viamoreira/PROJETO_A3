@@ -1,6 +1,5 @@
 package src.main;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -16,6 +15,7 @@ public class InicioConsole {
         iniciarMenuConsole(); // Método que controla o menu no console
     }
 
+    // Método que inicia o menu no console
     public static void iniciarMenuConsole() {
         while (true) {
             System.out.println("\n=== MENU CONSOLE ===");
@@ -29,6 +29,8 @@ public class InicioConsole {
             System.out.println("5 - Sair do programa");
             System.out.print("Escolha uma opção: ");
 
+            // Lê a opção do usuário
+            // Trata exceções para garantir que o usuário digite um número válido
             try {
                 int opcao = Integer.parseInt(scanner.nextLine());
                 switch (opcao) {
@@ -63,7 +65,7 @@ public class InicioConsole {
         }
     }
 
-    // Métodos auxiliares (adicione esses dentro da classe AppPrincipal)
+    // Método que exibe os usuários cadastrados no console
     public static void mostrarUsuarios() {
         if(listaUsuarios == null) {
             System.out.println("A lista de usuários é NULL");
@@ -76,6 +78,7 @@ public class InicioConsole {
         }
     }
 
+    // Método que cadastra um novo usuário
     public static void cadastrarUsuario() {
     System.out.print("Digite o nome: ");
     String nome = scanner.nextLine();
@@ -97,6 +100,7 @@ public class InicioConsole {
     System.out.println("✅ Usuário cadastrado!");
     }
 
+// Método que salva a lista de usuários em um arquivo JSON
     public static void salvarUsuariosEmJson() {
     mostrarUsuarios(); // Mostra o conteúdo atual antes de salvar
     

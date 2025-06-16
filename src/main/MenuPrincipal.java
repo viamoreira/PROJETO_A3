@@ -15,10 +15,9 @@ public class MenuPrincipal extends JFrame {
 
     // Método estático para iniciar a interface (chamado pelo AppPrincipal)
     public static void iniciar() {
-        new MenuPrincipal(); // Cria uma instância da janela
+        new MenuPrincipal();
     }
 
-    // Construtor da classe
     public MenuPrincipal() {
         configurarJanela();
         adicionarComponentes();
@@ -42,7 +41,6 @@ public class MenuPrincipal extends JFrame {
     JPanel painelAbas = new JPanel(new CardLayout());
     painelAbas.setBackground(Color.decode("#f1f6f9"));
 
-    // CORREÇÃO: Nome da aba consistentes
     String[] abas = {"Início", "Quem somos", "Conheça o Robô", "Práticas EFI", "Práticas EFII", "Práticas EM"};
     Font fonte = new Font("Poppins", Font.PLAIN, 12);
 
@@ -84,13 +82,13 @@ public class MenuPrincipal extends JFrame {
     JButton btnVoltar = criarBotaoVoltar(fonte);
     menu.add(btnVoltar);
 
-    // Layout principal (ADICIONE ESTA PARTE QUE ESTAVA FALTANDO)
+    // Configurações do menu
     JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, menu, painelAbas);
     splitPane.setDividerLocation(150);
     splitPane.setEnabled(false);
 
     add(splitPane, BorderLayout.CENTER);
-    setVisible(true); // ESSA LINHA É CRUCIAL PARA MOSTRAR A JANELA
+    setVisible(true); 
 }
 
     private JButton criarBotaoMenu(String texto, Font fonte) {

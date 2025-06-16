@@ -15,6 +15,7 @@ public class QuemSomos extends JPanel {
     private Timer timerProgresso;
     private JScrollPane scrollPane;
 
+    // Construtor da classe QuemSomos que configura toda a aba
     public QuemSomos() {
         setBackground(Color.decode("#f1f6f9"));
         setLayout(new BorderLayout(10, 10));
@@ -23,7 +24,7 @@ public class QuemSomos extends JPanel {
         adicionarConteudoPrincipal();
         adicionarRodape();
     }
-
+    // Método para adicionar a barra de progresso no topo da aba
     private void adicionarBarraProgresso() {
         JPanel painelProgresso = new JPanel(new BorderLayout());
         painelProgresso.setBackground(Color.decode("#f1f6f9"));
@@ -45,6 +46,8 @@ public class QuemSomos extends JPanel {
         add(painelProgresso, BorderLayout.NORTH);
     }
 
+
+    // Método para adicionar o cabeçalho da aba
     private void adicionarCabecalho() {
         JPanel cabecalhoPanel = new JPanel(new BorderLayout());
         cabecalhoPanel.setBackground(Color.decode("#600098"));
@@ -64,6 +67,7 @@ public class QuemSomos extends JPanel {
         add(cabecalhoPanel, BorderLayout.NORTH);
     }
 
+    // Método para adicionar o conteúdo principal da aba
     private void adicionarConteudoPrincipal() {
         JPanel conteudo = new JPanel();
         conteudo.setLayout(new BoxLayout(conteudo, BoxLayout.PAGE_AXIS));
@@ -129,6 +133,7 @@ public class QuemSomos extends JPanel {
         SwingUtilities.invokeLater(() -> scrollPane.getViewport().setViewPosition(new Point(0, 0)));
     }
 
+    // Método para adicionar uma seção com botão de confirmação
     private void adicionarSecaoComBotao(JPanel container, String titulo, String texto, String iconeCaminho) {
         String nomeSecao = "SECAO_" + titulo.replaceAll(" ", "_");
         secoesLidas.put(nomeSecao, false);
@@ -201,6 +206,7 @@ public class QuemSomos extends JPanel {
         container.add(Box.createRigidArea(new Dimension(0, 40)));
     }
 
+    // Método para atualizar o progresso da barra de progresso
     private void atualizarProgresso() {
         if (progressoCompleto) return;
         
@@ -230,6 +236,7 @@ public class QuemSomos extends JPanel {
         timerProgresso.start();
     }
 
+    // Método para criar o painel de contato
     private JPanel criarPainelContato() {
         JPanel painelContato = new JPanel();
         painelContato.setLayout(new BoxLayout(painelContato, BoxLayout.Y_AXIS));
@@ -258,6 +265,7 @@ public class QuemSomos extends JPanel {
         return painelContato;
     }
 
+    // Método para adicionar o rodapé da aba
     private void adicionarRodape() {
         JPanel rodapePanel = new JPanel(new BorderLayout());
         rodapePanel.setBackground(Color.decode("#600098"));

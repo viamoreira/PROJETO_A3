@@ -1,11 +1,10 @@
 package src.main;
-// Importação das bibliotecas necessárias para criar a interface gráfica
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import javax.swing.border.Border;
 
-import src.main.abas.QuemSomos;
 
 // Classe principal que estende JFrame para criar uma janela
 public class TelaInicial extends JFrame {
@@ -14,10 +13,9 @@ public class TelaInicial extends JFrame {
         new TelaInicial();
     }
 
-    // Classe interna responsável por criar uma borda arredondada personalizada
     class RoundedBorder implements Border {
-        private int radius;  // Raio dos cantos arredondados
-        private Color color; // Cor da borda
+        private int radius;  
+        private Color color;
 
         // Construtor que recebe o raio e a cor da borda
         RoundedBorder(int radius, Color color) {
@@ -25,19 +23,18 @@ public class TelaInicial extends JFrame {
             this.color = color;
         }
 
-        // Define as margens internas da borda (Insets)
+       
         @Override
         public Insets getBorderInsets(Component c) {
             return new Insets(radius + 1, radius + 1, radius + 1, radius + 1);
         }
 
-        // Indica se a borda é opaca (não é)
+        
         @Override
         public boolean isBorderOpaque() {
             return false;
         }
 
-        // Método que desenha a borda arredondada no componente
         @Override
         public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
             Graphics2D g2 = (Graphics2D) g;

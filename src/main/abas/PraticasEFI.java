@@ -18,20 +18,14 @@ public class PraticasEFI extends JPanel {
     public PraticasEFI() {
        setBackground(Color.decode("#f1f6f9"));
         setLayout(new BorderLayout(10, 10));
-        
-        // Primeiro adiciona o cabeçalho (NORTH)
+
         adicionarCabecalho();
-        
-        // Depois adiciona a barra de progresso (PAGE_START)
         adicionarBarraProgresso();
-        
-        // Adiciona o conteúdo principal (CENTER)
         adicionarConteudoPrincipal();
-        
-        // Adiciona o rodapé (SOUTH)
         adicionarRodape();
     }
-
+ 
+    // Método para adicionar o cabeçalho da aba
 private void adicionarCabecalho() {
         JPanel cabecalhoPanel = new JPanel(new BorderLayout());
         cabecalhoPanel.setBackground(Color.decode("#600098"));
@@ -53,6 +47,7 @@ private void adicionarCabecalho() {
         add(cabecalhoPanel, BorderLayout.NORTH);
     }
 
+    // Método para adicionar a barra de progresso no topo da aba
     private void adicionarBarraProgresso() {
         JPanel painelProgresso = new JPanel(new BorderLayout());
         painelProgresso.setBackground(Color.decode("#f1f6f9"));
@@ -75,7 +70,7 @@ private void adicionarCabecalho() {
         add(painelProgresso, BorderLayout.PAGE_START);
     }
 
-
+    // Método para adicionar o conteúdo principal da aba
     private void adicionarConteudoPrincipal() {
         JPanel conteudo = new JPanel();
         conteudo.setLayout(new BoxLayout(conteudo, BoxLayout.PAGE_AXIS));
@@ -346,6 +341,7 @@ private void adicionarCabecalho() {
         container.add(Box.createRigidArea(new Dimension(0, 40)));
     }
 
+    // Método para atualizar o progresso da barra de progresso
     private void atualizarProgresso() {
         if (progressoCompleto) return;
         
@@ -375,6 +371,7 @@ private void adicionarCabecalho() {
         timerProgresso.start();
     }
 
+    // Método para adicionar o rodapé da aba
     private void adicionarRodape() {
         JPanel rodapePanel = new JPanel(new BorderLayout());
         rodapePanel.setBackground(Color.decode("#600098"));
