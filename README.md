@@ -9,6 +9,7 @@ Este repositório contém uma versão digital interativa do manual didático do 
 ## 🗂️ Estrutura de Pastas
 
 ```
+│   README.md
 │   Settings.json
 │
 ├───lib
@@ -39,8 +40,21 @@ Este repositório contém uma versão digital interativa do manual didático do 
         │       Usuario.json
         │
         └───imagens
+                beneficios.jpg
                 button_welcome.png
+                ciencia_icon.jpg
+                componentes_robo.png
+                conheca_o_robo.png
+                desafios.jpg
+                entradas_robo.png
+                first-logo-01.png
+                fisica_icon.jpg
+                geografia_icon.jpg
+                impacto.jpg
                 logo_botinho_funoroxo.png
+                logo_ftc.jpg
+                matematica_icon.jpg
+                quimica_icon.jpg
 ```
 
 ## 💻 Tecnologias Utilizadas
