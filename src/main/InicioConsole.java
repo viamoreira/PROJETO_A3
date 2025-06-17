@@ -3,6 +3,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
@@ -106,7 +108,6 @@ public class InicioConsole {
     
     if(listaUsuarios == null || listaUsuarios.isEmpty()) {
         System.out.println("⚠️ Lista de usuários vazia - nada para salvar");
-        System.out.println("Execute primeiro o método para adicionar/carregar usuários!");
         return;
     }
 
@@ -115,9 +116,37 @@ public class InicioConsole {
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
         
         File arquivo = new File("src/resources/data/Usuario.json");
+        
+        // 1. Verifica se o arquivo já existe e tem conteúdo
+        if(arquivo.exists() && arquivo.length() > 0) {
+            // 2. Carrega os usuários existentes
+            List<Usuario> usuariosExistentes = mapper.readValue(arquivo, 
+                new TypeReference<List<Usuario>>(){});
+            
+            // 3. Filtra para adicionar apenas usuários novos
+            for(Usuario novoUsuario : listaUsuarios) {
+                boolean usuarioJaExiste = usuariosExistentes.stream()
+                    .anyMatch(u -> 
+                        u.getEmail().equalsIgnoreCase(novoUsuario.getEmail()) &&
+                        u.getNome().equalsIgnoreCase(novoUsuario.getNome()));
+                
+                if(!usuarioJaExiste) {
+                    usuariosExistentes.add(novoUsuario);
+                } else {
+                    System.out.println("Usuário " + novoUsuario.getNome() + 
+                        " já existe - não será adicionado novamente");
+                }
+            }
+            
+            // 4. Atualiza a lista para salvar
+            listaUsuarios = usuariosExistentes;
+        }
+        
+        // 5. Salva a lista consolidada
         mapper.writeValue(arquivo, listaUsuarios);
         
-        System.out.println("\n✅ " + listaUsuarios.size() + " usuários salvos em: " + arquivo.getAbsolutePath());
+        System.out.println("\n✅ " + listaUsuarios.size() + 
+            " usuários salvos em: " + arquivo.getAbsolutePath());
     } catch (Exception e) {
         System.err.println("\n❌ Erro ao salvar: " + e.getMessage());
         e.printStackTrace();

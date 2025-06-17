@@ -89,7 +89,7 @@ public class Inicio extends JPanel {
             "<p>Por isso, acreditamos que democratizar o acesso à robótica educacional é uma forma concreta de promover equidade, " +
             "fortalecer a educação e transformar realidades.</p>" +
             "</body></html>",
-            "icons/desafios.png");
+            "src\\resources\\imagens\\desafios.jpg");
 
         // Seção 2: Benefícios
         adicionarSecaoComBotao(conteudo,
@@ -106,7 +106,7 @@ public class Inicio extends JPanel {
             "<p>Este manual foi criado com o intuito de auxiliar os professores na aplicação dessa ferramenta em sala de aula, " +
             "com foco em proporcionar um aprendizado significativo para alunos do 6º ao 9º ano do Ensino Fundamental II.</p>" +
             "</body></html>",
-            "icons/beneficios.png");
+            "src\\resources\\imagens\\beneficios.jpg");
 
         // Seção 3: Estatísticas
         adicionarSecaoComBotao(conteudo,
@@ -116,7 +116,7 @@ public class Inicio extends JPanel {
             "<li>Alunos que possuem acesso à robótica educacional em suas aulas têm um aumento de <b>25% no desempenho</b> em matérias de STEM</li>" +
             "<li>A robótica pode aumentar em até <b>30% a capacidade</b> dos estudantes em habilidades de resolução de problemas e pensamento crítico</li>" +
             "</ul></body></html>",
-            "icons/estatisticas.png");
+            "src\\resources\\imagens\\impacto.jpg");
 
         scrollPane = new JScrollPane(conteudo);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());

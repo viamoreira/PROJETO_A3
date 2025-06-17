@@ -89,7 +89,7 @@ public class QuemSomos extends JPanel {
             "<p>A STARBOTS se orgulha de representar não só a nossa escola e comunidade, mas também os valores do Gracious Professionalism " +
             "e Coopertition que estão no coração da FIRST.</p>" +
             "</body></html>",
-            "icons/equipe.png");
+            "src\\resources\\imagens\\logo_ftc.jpg");
 
         // Seção 2: Sobre a FIRST
         adicionarSecaoComBotao(conteudo,
@@ -104,7 +104,7 @@ public class QuemSomos extends JPanel {
             "<p>Ao fazer parte desse movimento global, contribuímos para a formação de uma nova geração de pensadores criativos, " +
             "cientistas, engenheiros, artistas e líderes comprometidos com um futuro mais inovador e sustentável.</p>" +
             "</body></html>",
-            "icons/first.png");
+            "src\\resources\\imagens\\first-logo-01.png");
 
         // Seção 3: Nossos Valores
         adicionarSecaoComBotao(conteudo,

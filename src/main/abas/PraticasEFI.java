@@ -104,7 +104,7 @@ private void adicionarCabecalho() {
             "<p><b>Momento 4:</b> Analisar em grupo onde estava mais claro e mais escuro.</p>" +
             "<p><b>Momento 5:</b> Compartilhar dados e relacionar com situações do cotidiano.</p>" +
             "</body></html>",
-            "icons/ciencias.png");
+            "src\\resources\\imagens\\ciencia_icon.jpg");
 
         // CIÊNCIAS - PRÁTICA II
         adicionarSecaoComBotao(conteudo,
@@ -127,7 +127,7 @@ private void adicionarCabecalho() {
             "<p><b>Momento 4:</b> Comparar dados coletados e discutir resultados.</p>" +
             "<p><b>Momento 5:</b> Relacionar os aprendizados com situações do cotidiano.</p>" +
             "</body></html>",
-            "icons/energia.png");
+            "src\\resources\\imagens\\ciencia_icon.jpg");
 
         // GEOGRAFIA - PRÁTICA I
         adicionarSecaoComBotao(conteudo,
@@ -148,7 +148,7 @@ private void adicionarCabecalho() {
             "<p><b>Momento 3:</b> Dividir a turma em grupos para planejar trajetos.</p>" +
             "<p><b>Momento 4:</b> Compartilhar trajetos e discutir pontos de referência.</p>" +
             "</body></html>",
-            "icons/geografia.png");
+            "src\\resources\\imagens\\geografia_icon.jpg");
 
         // GEOGRAFIA - PRÁTICA II
         adicionarSecaoComBotao(conteudo,
@@ -171,7 +171,7 @@ private void adicionarCabecalho() {
             "<p><b>Momento 4:</b> Comparar dados das diferentes estações.</p>" +
             "<p><b>Momento 5:</b> Refletir sobre como esses elementos interferem na nossa vida.</p>" +
             "</body></html>",
-            "icons/geografia.png");
+            "src\\resources\\imagens\\geografia_icon.jpg");
 
         // GEOGRAFIA - PRÁTICA III
         adicionarSecaoComBotao(conteudo,
@@ -193,7 +193,7 @@ private void adicionarCabecalho() {
             "<p><b>Momento 4:</b> Discutir desafios encontrados em cada tipo de relevo.</p>" +
             "<p><b>Momento 5:</b> Relacionar com situações reais de construção e transporte.</p>" +
             "</body></html>",
-            "icons/relevo.png");
+            "src\\resources\\imagens\\geografia_icon.jpg");
 
         // MATEMÁTICA - PRÁTICA I
         adicionarSecaoComBotao(conteudo,
@@ -213,7 +213,7 @@ private void adicionarCabecalho() {
             "<p><b>Momento 2:</b> Lançar desafios matemáticos para os alunos resolverem com o robô.</p>" +
             "<p><b>Momento 3:</b> Cada aluno cria um desafio para os colegas.</p>" +
             "</body></html>",
-            "icons/matematica.png");
+            "src\\resources\\imagens\\matematica_icon.jpg");
 
         // MATEMÁTICA - PRÁTICA II
         adicionarSecaoComBotao(conteudo,
@@ -236,7 +236,7 @@ private void adicionarCabecalho() {
             "<p><b>Momento 4:</b> Comparar estimativas com medidas reais.</p>" +
             "<p><b>Momento 5:</b> Refletir sobre a importância das medidas no cotidiano.</p>" +
             "</body></html>",
-            "icons/medidas.png");
+            "src\\resources\\imagens\\matematica_icon.jpg");
 
         // MATEMÁTICA - PRÁTICA III
         adicionarSecaoComBotao(conteudo,
@@ -258,7 +258,7 @@ private void adicionarCabecalho() {
             "<p><b>Momento 4:</b> Planejar figuras geométricas com giros específicos.</p>" +
             "<p><b>Momento 5:</b> Discutir aplicações dos ângulos no dia a dia.</p>" +
             "</body></html>",
-            "icons/angulos.png");
+            "src\\resources\\imagens\\matematica_icon.jpg");
 
         scrollPane = new JScrollPane(conteudo);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
@@ -270,77 +270,85 @@ private void adicionarCabecalho() {
     }
 
     private void adicionarSecaoComBotao(JPanel container, String titulo, String texto, String iconeCaminho) {
-        String nomeSecao = "SECAO_" + titulo.replaceAll(" ", "_");
-        secoesLidas.put(nomeSecao, false);
+    String nomeSecao = "SECAO_" + titulo.replaceAll(" ", "_");
+    secoesLidas.put(nomeSecao, false);
 
-        JPanel secao = new JPanel();
-        secao.setLayout(new BoxLayout(secao, BoxLayout.Y_AXIS));
-        secao.setBackground(Color.WHITE);
-        secao.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
-        secao.setName(nomeSecao);
+    JPanel secao = new JPanel();
+    secao.setLayout(new BoxLayout(secao, BoxLayout.Y_AXIS));
+    secao.setBackground(Color.WHITE);
+    secao.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
+    secao.setName(nomeSecao);
 
-        // Painel do conteúdo
-        JPanel painelConteudo = new JPanel(new BorderLayout());
-        painelConteudo.setBackground(Color.WHITE);
+    // Painel do conteúdo
+    JPanel painelConteudo = new JPanel(new BorderLayout());
+    painelConteudo.setBackground(Color.WHITE);
 
-        // Ícone
-        JLabel lblIcone = new JLabel();
-        try {
-            ImageIcon icon = new ImageIcon(iconeCaminho);
-            lblIcone.setIcon(new ImageIcon(icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-        } catch (Exception e) {
-            lblIcone.setIcon(new ImageIcon(new ImageIcon("icons/default.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-        }
-        lblIcone.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 15));
-
-        // Textos
-        JPanel textos = new JPanel(new BorderLayout());
-        textos.setBackground(Color.WHITE);
-
-        JLabel lblTitulo = new JLabel(titulo);
-        lblTitulo.setFont(new Font("Poppins", Font.BOLD, 18));
-        lblTitulo.setForeground(Color.decode("#600098"));
-        lblTitulo.setBorder(BorderFactory.createEmptyBorder(0, 0, 15, 0));
-
-        JEditorPane txtDescricao = new JEditorPane();
-        txtDescricao.setContentType("text/html");
-        txtDescricao.setText(texto);
-        txtDescricao.setEditable(false);
-        txtDescricao.setBackground(Color.WHITE);
-        txtDescricao.setBorder(BorderFactory.createEmptyBorder(0, 20, 20, 20));
-        txtDescricao.setPreferredSize(new Dimension(600, txtDescricao.getPreferredSize().height));
-
-        textos.add(lblTitulo, BorderLayout.NORTH);
-        textos.add(txtDescricao, BorderLayout.CENTER);
-
-        painelConteudo.add(lblIcone, BorderLayout.WEST);
-        painelConteudo.add(textos, BorderLayout.CENTER);
-
-        // Botão de confirmação
-        JButton btnConfirmar = new JButton("Li e entendi esta seção");
-        btnConfirmar.setFont(new Font("Poppins", Font.BOLD, 14));
-        btnConfirmar.setForeground(Color.WHITE);
-        btnConfirmar.setBackground(Color.decode("#600098"));
-        btnConfirmar.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
-        btnConfirmar.setAlignmentX(Component.CENTER_ALIGNMENT);
-        btnConfirmar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                secoesLidas.put(nomeSecao, true);
-                btnConfirmar.setEnabled(false);
-                btnConfirmar.setText("Seção concluída ✓");
-                atualizarProgresso();
-            }
-        });
-
-        secao.add(painelConteudo);
-        secao.add(Box.createRigidArea(new Dimension(0, 20)));
-        secao.add(btnConfirmar);
-
-        container.add(secao);
-        container.add(Box.createRigidArea(new Dimension(0, 40)));
+    // Ícone
+    JLabel lblIcone = new JLabel();
+    try {
+        ImageIcon icon = new ImageIcon(iconeCaminho);
+        lblIcone.setIcon(new ImageIcon(icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+    } catch (Exception e) {
+        lblIcone.setIcon(new ImageIcon(new ImageIcon("icons/default.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
     }
+    lblIcone.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 15));
 
+    // Textos
+    JPanel textos = new JPanel(new BorderLayout());
+    textos.setBackground(Color.WHITE);
+
+    JLabel lblTitulo = new JLabel(titulo);
+    lblTitulo.setFont(new Font("Poppins", Font.BOLD, 18));
+    lblTitulo.setForeground(Color.decode("#600098"));
+    lblTitulo.setBorder(BorderFactory.createEmptyBorder(0, 0, 15, 0));
+
+    JEditorPane txtDescricao = new JEditorPane();
+    txtDescricao.setContentType("text/html");
+    txtDescricao.setText(texto);
+    txtDescricao.setEditable(false);
+    txtDescricao.setBackground(Color.WHITE);
+    txtDescricao.setBorder(BorderFactory.createEmptyBorder(0, 20, 20, 20));
+    
+    // Ajuste crítico para o tamanho do texto
+    txtDescricao.setPreferredSize(new Dimension(600, 1)); // Altura inicial mínima
+    txtDescricao.putClientProperty(JEditorPane.HONOR_DISPLAY_PROPERTIES, Boolean.TRUE);
+    
+    // Forçar o JEditorPane a calcular seu tamanho preferido corretamente
+    SwingUtilities.invokeLater(() -> {
+        int height = txtDescricao.getPreferredSize().height;
+        txtDescricao.setPreferredSize(new Dimension(600, height));
+    });
+
+    textos.add(lblTitulo, BorderLayout.NORTH);
+    textos.add(new JScrollPane(txtDescricao), BorderLayout.CENTER); // Adiciona scroll se necessário
+
+    painelConteudo.add(lblIcone, BorderLayout.WEST);
+    painelConteudo.add(textos, BorderLayout.CENTER);
+
+    // Botão de confirmação
+    JButton btnConfirmar = new JButton("Li e entendi esta seção");
+    btnConfirmar.setFont(new Font("Poppins", Font.BOLD, 14));
+    btnConfirmar.setForeground(Color.WHITE);
+    btnConfirmar.setBackground(Color.decode("#600098"));
+    btnConfirmar.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+    btnConfirmar.setAlignmentX(Component.CENTER_ALIGNMENT);
+    btnConfirmar.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            secoesLidas.put(nomeSecao, true);
+            btnConfirmar.setEnabled(false);
+            btnConfirmar.setText("Seção concluída ✓");
+            atualizarProgresso();
+        }
+    });
+
+    secao.add(painelConteudo);
+    secao.add(Box.createRigidArea(new Dimension(0, 20)));
+    secao.add(btnConfirmar);
+
+    container.add(secao);
+    container.add(Box.createRigidArea(new Dimension(0, 40)));
+}
     // Método para atualizar o progresso da barra de progresso
     private void atualizarProgresso() {
         if (progressoCompleto) return;
