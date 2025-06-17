@@ -20,5 +20,11 @@ public class Padrao extends JPanel {
     
     private void configurarAba() {
         setBackground(Color.decode("#f1f6f9"));
+        // Use the 'titulo' field by displaying it in a JLabel
+        JLabel tituloLabel = new JLabel(titulo);
+        tituloLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        tituloLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        setLayout(new BorderLayout());
+        add(tituloLabel, BorderLayout.NORTH);
     }
 }
